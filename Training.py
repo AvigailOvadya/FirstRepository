@@ -9,6 +9,10 @@ while True:
 
     print "I don't like a'", line
 
+
+
+
+
 word_count = 0
 line = raw_input()
 
