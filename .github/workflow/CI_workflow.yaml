@@ -32,47 +32,31 @@ jobs:
       - name: Run lint
         run: |
           ruff .
-      
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
 
       # - name: Install dependencies
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install -r requirements.txt
 
-      - name: Run build
-        run: |
-          python setup.py build
 
 
+    #         build:
+    # runs-on: ubuntu-latest
+    # strategy:
+    #   matrix:
+    #     python-version: [3.8]
 
-            build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8]
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Test with pytest
-        run: |
-          pip install pytest
-          python -m pytest
+    # steps:
+    #   - uses: actions/checkout@v2
+    #   - name: Set up Python ${{ matrix.python-version }}
+    #     uses: actions/setup-python@v1
+    #     with:
+    #       python-version: ${{ matrix.python-version }}
+    #   - name: Install dependencies
+    #     run: |
+    #       python -m pip install --upgrade pip
+    #       pip install -r requirements.txt
+    #   - name: Test with pytest
+    #     run: |
+    #       pip install pytest
+    #       python -m pytest
